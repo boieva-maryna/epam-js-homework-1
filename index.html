@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            border: 1px solid #000;
+            height: 3rem;
+            width: 3rem;
+            color:  #a3bdd4;
+            font-size: 2rem;
+            text-align: center;
+            background-color: #a3bdd4;
+        }
+        .animate{
+            transition: color, 0.1s,background-color,0.2s;
+            color: #000;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <script defer>
+        const n=document.getElementsByTagName("tr").length;//строки
+        const m=document.getElementsByTagName("tr")[0].getElementsByTagName("td").length;//столбцы
+        let i=0, j, k = 0, p=1;//p-цифра внутри
+        let d=0; /*Задержка для анимации*/
+        while (i < n*m) /*Цикл по номеру витка*/
+        {
+            k++;
+            for (j=k-1;j<m-k+1;j++){ //j-ячейка,k-строка
+                d+=0.1;
+                document.getElementsByTagName("tr")[k-1].getElementsByTagName("td")[j].innerHTML=p++;
+                document.getElementsByTagName("tr")[k-1].getElementsByTagName("td")[j].style.transitionDelay=d+"s";
+                document.getElementsByTagName("tr")[k-1].getElementsByTagName("td")[j].classList.add("animate");
+                i++;
+            }   /*Определение значений верхнего гор столбца*/ 
+            for (j=k;j<n-k+1;j++){//j-отступ сверху,k-отступ справа
+                d+=0.1;
+                document.getElementsByTagName("tr")[j].getElementsByTagName("td")[m-k].innerHTML=p++;
+                document.getElementsByTagName("tr")[j].getElementsByTagName("td")[m-k].style.transitionDelay=d+"s";
+                document.getElementsByTagName("tr")[j].getElementsByTagName("td")[m-k].classList.add("animate");
+                i++;
+            }   /* --//-- По правому вертикальному столбцу*/
+            for (j=m-k-1;j>=k-1;j--){//j-отступ справа,k-отступ снизу
+                d+=0.1;
+                document.getElementsByTagName("tr")[n-k].getElementsByTagName("td")[j].innerHTML=p++;
+                document.getElementsByTagName("tr")[n-k].getElementsByTagName("td")[j].style.transitionDelay=d+"s";
+                document.getElementsByTagName("tr")[n-k].getElementsByTagName("td")[j].classList.add("animate");
+                i++;
+            }   /* --//-- по нижнему горизонтальному столбцу*/ 
+            for (j=n-k-1;j>=k;j--){//j-отступ сверху,k-отступ слева
+                d+=0.1;
+                document.getElementsByTagName("tr")[j].getElementsByTagName("td")[k-1].innerHTML=p++;
+                document.getElementsByTagName("tr")[j].getElementsByTagName("td")[k-1].style.transitionDelay=d+"s";
+                document.getElementsByTagName("tr")[j].getElementsByTagName("td")[k-1].classList.add("animate");
+                i++;
+            }   /* --//-- по левому вертикальному столбцу*/
+        }
+    </script>
+</body>
+</html>
