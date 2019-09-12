@@ -83,7 +83,8 @@
         </tr>
     </table>
     <script>
-        const n=document.getElementsByTagName("tr").length;//строки
+        setTimeout(()=>{
+            const n=document.getElementsByTagName("tr").length;//строки
         const m=document.getElementsByTagName("tr")[0].getElementsByTagName("td").length;//столбцы
         let i=0, j, k = 0, p=1;//p-цифра внутри
         let d=0; /*Задержка для анимации*/
@@ -119,6 +120,7 @@
                 i++;
             }   /* --//-- по левому вертикальному столбцу*/
         }
+        },100)
     </script>
 </body>
 </html>
